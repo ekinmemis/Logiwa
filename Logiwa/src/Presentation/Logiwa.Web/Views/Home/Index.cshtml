@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+
+@using Logiwa.Web.Framework
+@model Logiwa.Web.Models.Product.ProductListModel
+
+@{
+    var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+}
+@if (!pager.IsEmpty())
+{
+    <div class="pagination-wrap clearfix">
+        @pager
+    </div>
+}
+<!-- End Pagination -->

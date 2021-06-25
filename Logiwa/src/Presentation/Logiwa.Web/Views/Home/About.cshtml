@@ -1,0 +1,44 @@
+﻿@model Logiwa.Web.Models.About.AboutModel
+
+@{
+    ViewBag.Title = "Category";
+}
+<div class="content">
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content clearfix" data-sidebar="right">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-posts">
+                        <article class="post-single page">
+                            <!-- Title -->
+                            <h3 class="title">
+                                @Model.Title
+                            </h3>
+                            <!-- End Title -->
+                            <!-- Post Details -->
+                            <div class="post-details">
+                                <a href="" class="post-date">@Model.DateString.ToUpper()</a>
+                            </div>
+                            <!-- End Post Details -->
+                            <!-- Thumbnail -->
+                            <div class="post-media">
+                                <img src="~/Content/travel/images/@Model.Image" alt="Little About Me">
+                            </div>
+
+                            <div class="the-excerpt">
+                                <p><em><strong>@Model.ShortDefinition</strong></em></p>
+                                <p>@Model.Definition</p>
+                                <blockquote><p>@Model.Note</p></blockquote>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Content -->
+
+
+</div>

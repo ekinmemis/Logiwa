@@ -1,0 +1,58 @@
+﻿@model Logiwa.Web.Models.Contact.ContactModel
+@{
+    ViewBag.Title = "İletişim";
+}
+
+
+<!-- Main Content -->
+<div id="main-content" class="main-content clearfix" data-sidebar="right">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-posts">
+
+                    <article class="post-single page">
+
+                        <!-- Title -->
+                        <h3 class="title">@Model.Title</h3>
+                        <br />
+                        <!-- End Title -->
+                        <!-- End Post Details -->
+
+                        <div class="the-excerpt">
+                            <p>
+                                <em><strong>@Model.Definition</strong></em>
+                                <br /><br />
+                        </div>
+
+                        <!-- Contact Info-->
+                        <div class="contact-info">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <i class="icon-phone-call"></i>
+                                    <h4 class="title">@Model.PhoneNumberTitle</h4>
+                                    <p>@Model.PhoneNumberSubject</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="icon-placeholder"></i>
+                                    <h4 class="title">@Model.PostalAdressTitle</h4>
+                                    <p>
+                                        @Model.PostalAddressSubject
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="icon-phone-call"></i>
+                                    <h4 class="title">@Model.EmailAddress</h4>
+                                    <p><a href="mailto:@Model.EmailSubject">@Model.EmailSubject</a></p>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- End Contact Info-->
+                    </article>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<!-- End Main Content -->

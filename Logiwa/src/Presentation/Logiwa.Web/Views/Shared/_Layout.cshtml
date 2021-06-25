@@ -1,0 +1,98 @@
+﻿@using Logiwa.Services.Catalog
+@using Logiwa.Core.Domain.Catalog
+@using Logiwa.Data
+@{
+    var service = new CategoryService(
+        new EfRepository<Category>(new EfDataContext())
+        , new EfRepository<ProductCategory>(new EfDataContext())
+        , new EfRepository<Product>(new EfDataContext()));
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Logiwa</title>
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,700|Adamina' type='text/css' media='all' />
+
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/libs/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/libs/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/libs/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/libs/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/libs/magnific-popup.css">
+    <link rel="stylesheet" href="~/content/travel/css/libs/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="~/content/travel/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header header-v3">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="">
+                <img src="~/content/travel/images/logo.png" alt="Gezi Dolu">
+            </a>
+        </div>
+        <!-- End Logo -->
+
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-inner">
+                    <div class="menu-mobile">
+                        <span class="item item-1"></span>
+                        <span class="item item-2"></span>
+                        <span class="item item-3"></span>
+                    </div>
+
+                    <nav class="navigation">
+                        <ul class="menu-list">
+                            <li class="menu-item menu-item-has-children">
+                                <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+                            </li>
+                            <li class="menu-item menu-item-has-children">
+                                <a>Kategoriler</a>
+                                <ul class="sub-menu">
+                                    @foreach (var item in service.GetAllCategories())
+                                    {
+                                        <li class="menu-item">
+                                            <a href="@Url.Action("List","Home", new { categoryId = item.Id })">@item.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <div class="header-right pull-right">
+                        <div class="search">
+                            <i class="fa fa-search"></i>
+                            <div class="box-search">
+                                <form class="search-form" action="/Home/List" method="get">
+                                    <input type="search" class="search-field" placeholder="Search ..." value="" title="Search" name="SearchName">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    <!-- Main Content -->
+    @RenderBody()
+    <!-- End Main Content -->
+    <!-- Scripts -->
+    <script type="text/javascript" src="~/content/travel/js/libs/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/libs/jquery.justifiedGallery.min.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/libs/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/libs/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/libs/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/libs/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="~/content/travel/js/scripts.js"></script>
+    <!-- End Scripts -->
+</body>
+
+
+</html>

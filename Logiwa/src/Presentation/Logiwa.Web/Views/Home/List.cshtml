@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+@using Logiwa.Web.Framework
+@model Logiwa.Web.Models.Product.ProductListModel
+
+<div id="main-content" class="main-content clearfix" data-sidebar="right">
+    <div class="container">
+        <div class="row">
+            <!-- Article -->
+            @foreach (var item in Model.Products)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.ShortDescription</p>
+                            <a href="@Url.Action("Single","Home",new { id = item.Id })" class="btn btn-primary">@item.Price</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- End Article -->
+
+        </div>
+        <!-- Pagination -->
+        @{
+            var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+        }
+        @if (!pager.IsEmpty())
+        {
+            <div class="pagination-wrap clearfix">
+                @pager
+            </div>
+        }
+
+        <!-- End Pagination -->
+    </div>
+</div>
+<!-- End Main Content -->

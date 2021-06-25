@@ -1,0 +1,125 @@
+﻿@model Logiwa.Web.Models.Product.ProductModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Page header -->
+    <div class="page-header page-header-light">
+        <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+            <div class="d-flex">
+                <div class="breadcrumb">
+                    <a href="@Url.Action("List","Product")" class="breadcrumb-item"><i class="icon-info22 mr-2"></i> Product</a>
+                    <span class="breadcrumb-item active">Add</span>
+                </div>
+
+                <a href="@Url.Action("List","Product")" class="header-elements-toggle text-default d-md-none"><i class="icon-info22"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Content area -->
+    <div class="content">
+        @using (Html.BeginForm("Create", "Product", method: FormMethod.Post))
+        {
+            <div class="card">
+                <div class="card-header bg-white header-elements-sm-inline">
+                    <h6 class="card-title"> Product Add </h6>
+                    <div class="header-elements">
+                        <button type="submit" name="save" value="save" class="btn bg-blue"><i class="icon-floppy-disk mr-1"></i> Save </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Name</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Sku</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Sku, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Sku, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Short Description</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(f => f.ShortDescription, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Price</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Type</label>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(f => f.ProductTypeId, Model.AvailableProductTypes, htmlAttributes: new { @class = "from-control" })
+                            @Html.ValidationMessageFor(model => model.ProductTypeId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Category</label>
+                        <div class="col-md-10">
+                            @Html.ListBoxFor(f => f.SelectedCategoryIds, Model.AvailableCategories, new { htmlAttributes = new { @class = "from-control" } })
+                            @Html.ValidationMessageFor(model => model.SelectedCategoryIds, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Height</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(f => f.Height, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Weight</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(f => f.Weight, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Width</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(f => f.Width, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Product Length</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(f => f.Length, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Length, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <!-- /content area -->
+</div>

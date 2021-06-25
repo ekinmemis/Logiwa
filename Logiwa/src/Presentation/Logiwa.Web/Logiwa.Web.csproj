@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D21B8F09-5009-4BF9-929C-F3CC3AFC8310}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logiwa.Web</RootNamespace>
+    <AssemblyName>Logiwa.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.Mvc5.6.0.0\lib\net472\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Configurations\AutofacConfiguration.cs" />
+    <Compile Include="Configurations\AutoMapperConfiguration.cs" />
+    <Compile Include="Configurations\MappingExtensions.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Factories\IProductModelFactory.cs" />
+    <Compile Include="Factories\ProductModelFactory.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomSearchModelBinding.cs" />
+    <Compile Include="Infrastructure\DecimalModelBinder.cs" />
+    <Compile Include="Models\Admin\LoginModel.cs" />
+    <Compile Include="Models\Category\CategoryListModel.cs" />
+    <Compile Include="Models\Category\CategoryModel.cs" />
+    <Compile Include="Models\DataTableRequestModel.cs" />
+    <Compile Include="Models\Product\ProductListModel.cs" />
+    <Compile Include="Models\Product\ProductModel.cs" />
+    <Compile Include="Models\Product\ProductPagingFilteringModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\limitless\assets\css\bootstrap.min.css" />
+    <Content Include="Content\limitless\assets\css\bootstrap_limitless.min.css" />
+    <Content Include="Content\limitless\assets\css\colors.min.css" />
+    <Content Include="Content\limitless\assets\css\components.min.css" />
+    <Content Include="Content\limitless\assets\css\layout.min.css" />
+    <Content Include="Content\limitless\assets\js\app.js" />
+    <Content Include="Content\limitless\global_assets\css\extras\animate.min.css" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400.svg" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400.svg" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900.svg" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\styles.min.css" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\fonts\icomoone627.svg" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\styles.min.css" />
+    <Content Include="Content\limitless\global_assets\css\icons\material\fonts\material-icons119d.svg" />
+    <Content Include="Content\limitless\global_assets\css\icons\material\styles.min.css" />
+    <Content Include="Content\limitless\global_assets\demo_data\maps\vector\gdp_demo_data.js" />
+    <Content Include="Content\limitless\global_assets\images\backgrounds\boxed_bg.png" />
+    <Content Include="Content\limitless\global_assets\images\backgrounds\panel_bg.png" />
+    <Content Include="Content\limitless\global_assets\images\backgrounds\seamless.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\amazon.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\bing.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\dribbble.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\facebook.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\spotify.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\twitter.png" />
+    <Content Include="Content\limitless\global_assets\images\brands\youtube.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\1.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\10.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\11.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\12.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\2.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\3.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\4.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\5.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\6.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\7.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\8.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\blog\9.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\amazon.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\cnn.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\dell.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\facebook.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\ibm.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\ing.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\microsoft.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\northface.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\transferwise.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\brands\uber.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\cover2.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\cover3.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\1.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\10.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\11.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\12.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\13.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\14.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\15.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\16.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\17.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\18.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\19.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\2.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\20.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\21.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\22.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\23.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\24.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\25.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\3.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\4.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\5.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\6.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\7.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\8.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\flat\9.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\1.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\10.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\2.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\3.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\4.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\5.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\6.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\7.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\8.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\9.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\blog1.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\blog2.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\blog3.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\blog4.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\blog5.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\images\for_crop.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\1.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\10.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\11.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\12.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\13.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\14.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\2.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\3.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\4.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\5.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\6.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\7.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\8.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\products\9.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face1.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face10.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face11.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face12.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face13.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face14.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face15.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face16.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face17.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face18.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face19.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face2.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face20.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face21.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face22.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face23.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face24.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face25.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face3.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face4.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face5.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face6.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face7.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face8.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\users\face9.jpg" />
+    <Content Include="Content\limitless\global_assets\images\demo\video1.png" />
+    <Content Include="Content\limitless\global_assets\images\demo\video2.png" />
+    <Content Include="Content\limitless\global_assets\images\dribbble.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\de.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\es.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\gb.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\it.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\ru.png" />
+    <Content Include="Content\limitless\global_assets\images\lang\ua.png" />
+    <Content Include="Content\limitless\global_assets\images\login_cover.jpg" />
+    <Content Include="Content\limitless\global_assets\images\logo_dark.png" />
+    <Content Include="Content\limitless\global_assets\images\logo_demo.png" />
+    <Content Include="Content\limitless\global_assets\images\logo_light.png" />
+    <Content Include="Content\limitless\global_assets\images\pie-chart.png" />
+    <Content Include="Content\limitless\global_assets\images\signature.png" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\c3\c3_advanced.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\c3\c3_axis.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\c3\c3_bars_pies.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\c3\c3_grid.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\c3\c3_lines_areas.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_hierarchical.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_histogram.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_simple_interaction.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_sortable_horizontal.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_sortable_vertical.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_advanced_stacked_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_grouped.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_horizontal.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_stacked_normalized.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_tooltip.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\bars\bars_basic_vertical.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\chords\chord_arcs.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\chords\chord_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\chords\chord_chart.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\chords\chord_tweens.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_difference.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_missing.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_small_multiples.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_spline_transition.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_transitions.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_advanced_zoom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_area.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_bivariate.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_gradient.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_multi_series.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\lines\lines_basic_stacked_nest.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\other\bubbles.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\other\treemap.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\other\waterfall.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_arc_tween.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_entry_animation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_multiple_nesting.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\donut_update.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_arc_tween.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_entry_animation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_multiple_nesting.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\pies\pie_update.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\sunburst\sunburst_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\sunburst\sunburst_combined.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\sunburst\sunburst_distortion.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\sunburst\sunburst_zoom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_bracket.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_collapsible.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_dendrogram.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_dendrogram_radial.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\tree\tree_radial.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_colors.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_interactive.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_rings.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_tooltip.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\d3\venn\venn_weighted.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\bars_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\bars_floating.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\bars_line.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\bars_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\bars_stacked_clustered.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\columns_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\columns_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\columns_stacked_clustered.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\columns_thermometer.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\columns_timeline.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\tornado_negative_stack.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\tornado_staggered.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\waterfall_change.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\bars\waterfall_compositive.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\calendars\calendar_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\calendars\calendar_single.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\candlesticks\candlestick_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\candlesticks\candlestick_line.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\candlesticks\candlestick_scatter.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_left.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_multiple_overlay.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_multiple_separate.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_right.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\funnels\funnel_sorting.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\gauge\gauge_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\gauge\gauge_custom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_point_values.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_reversed_axis.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\area_zoom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_inverted_axes.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_point_values.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\lines\lines_zoom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_donut.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_infographic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_levels.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_nested.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_rose.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_rose_labels.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\pies\pie_timeline.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\radar\radar_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\radar\radar_filled.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_category.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_punch.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_roaming.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_scale.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\echarts\light\scatter\scatter_size.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\bar.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\bar_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\column.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\column_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\combo.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bars\histogram.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bubbles\bubble.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\bubbles\bubble_gradient.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\area.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\area_intervals.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\area_stacked.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\area_stepped.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\lines.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\lines\line_intervals.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\other\candlestick.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\other\diff.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\other\geo.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\other\sankey.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\other\trendline.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\3d_exploded.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\donut.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\donut_exploded.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\donut_rotate.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_3d.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_diff_border.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_diff_invert.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_diff_opacity.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_diff_radius.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_exploded.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\pies\pie_rotate.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\scatter\scatter.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\google\light\scatter\scatter_diff.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\areas.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\bars.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\bullets.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\donuts.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\heatmaps.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\lines.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\pies.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\progress.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\sparklines.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\dashboard\light\streamgraph.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\ecommerce\light\customers.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\profile\light\available_hours.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\profile\light\balance_stats.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_charts\pages\timelines\light\daily_statistics.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\basic\basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\basic\click_event.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\basic\coordinates.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\basic\geolocation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\controls\adding_controls.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\controls\control_options.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\controls\control_positioning.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\controls\disable_ui.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\drawings\circles.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\drawings\polygons.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\drawings\polylines.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\drawings\rectangles.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\layers\bicycling.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\layers\fusion_tables.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\layers\traffic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\layers\transit.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\markers\animation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\markers\simple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\markers\symbols_custom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\google\markers\symbols_predefined.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_maps\vector\vector_maps_demo.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\alpaca_advanced.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\alpaca_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\alpaca_controls.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\animations_css3.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\animations_velocity_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\animations_velocity_examples.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\animations_velocity_ui.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\blog_single.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\chat_layouts.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_blue.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_brown.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_danger.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_green.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_grey.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_indigo.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_info.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_orange.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_pink.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_primary.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_purple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_slate.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_success.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_teal.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_violet.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\colors_warning.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_buttons.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_collapsible.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_dropdowns.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_media.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_modals.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_pagination.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_popups.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_progress.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\components_scrollspy.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\content_cards_content.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\content_cards_draggable.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\content_cards_footer.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\content_cards_header.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\content_page_header.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\dashboard.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_advanced.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_api.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_data_sources.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_autofill.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_buttons_flash.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_buttons_html5.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_buttons_init.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_buttons_print.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_colvis.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_fixed_columns.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_fixed_header.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_key_table.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_reorder.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_row_reorder.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_scroller.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_extension_select.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_responsive.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\datatables_sorting.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\ecommerce_customers.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\ecommerce_orders_history.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\ecommerce_product_list.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\editor_ckeditor_default.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\editor_code.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\editor_summernote.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\editor_trumbowyg.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extension_blockui.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extension_dnd.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extension_image_cropper.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_context_menu.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_fab.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_idle_timeout.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_jgrowl_noty.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_pnotify.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_session_timeout.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_sliders_ion.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_sliders_noui.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_sweetalert.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\extra_trees.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_actions.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_checkboxes_radios.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_controls_extended.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_dual_listboxes.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_floating_labels.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_inputs.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_input_groups.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_layouts.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_multiselect.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_select2.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_tags_input.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_validation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\form_wizard.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\fullcalendar_advanced.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\fullcalendar_basic.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\fullcalendar_formats.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\fullcalendar_styling.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\gallery.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\gallery_library.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\internationalization_callbacks.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\internationalization_fallback.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\internationalization_switch_direct.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\internationalization_switch_query.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\invoice_archive.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\invoice_grid.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\invoice_template_default.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\job_apply.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\job_list.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\jqueryui_components.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\jqueryui_forms.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\jqueryui_interactions.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\jqueryui_navigation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\jqueryui_sliders.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\layout_fixed_sidebar_custom.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\learning.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\learning_detailed.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\login.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\login_validation.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\mail_list.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\mail_list_read.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\mail_list_write.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\navbar_components.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\navbar_hideable.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\navbar_multiple.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\navbar_multiple_sticky.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\navigation_horizontal_mega.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\picker_color.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\picker_date.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\picker_location.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\sidebar_components.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\sidebar_secondary.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\table_elements.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\table_responsive.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\task_manager_detailed.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\task_manager_grid.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\task_manager_list.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\timelines.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\uploader_bootstrap.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\uploader_dropzone.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\uploader_plupload.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\user_pages_profile.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\user_pages_profile_tabbed.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\widgets_content.js" />
+    <Content Include="Content\limitless\global_assets\js\demo_pages\widgets_stats.js" />
+    <Content Include="Content\limitless\global_assets\js\main\bootstrap.bundle.min.js" />
+    <Content Include="Content\limitless\global_assets\js\main\jquery.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\buttons\hover_dropdown.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\buttons\ladda.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\buttons\spin.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\ace\ace.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\ckeditor\ckeditor.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\summernote\summernote.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\base64\trumbowyg.base64.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\colors\trumbowyg.colors.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\noembed\trumbowyg.noembed.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\preformatted\trumbowyg.preformatted.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\template\trumbowyg.template.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\plugins\upload\trumbowyg.upload.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\editors\trumbowyg\trumbowyg.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\contextmenu.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\cookie.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\core.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\effects.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\globalize\cultures\globalize.culture.de-DE.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\globalize\cultures\globalize.culture.ja-JP.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\globalize\globalize.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\interactions.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\touch.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\jquery_ui\widgets.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\mousewheel.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\rowlink.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\extensions\session_timeout.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\alpaca\alpaca.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\alpaca\price_format.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\autosize.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\duallistbox\duallistbox.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\formatter.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\inputmask.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\maxlength.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\passy.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\touchspin.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\typeahead\handlebars.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\inputs\typeahead\typeahead.bundle.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\selects\bootstrap_multiselect.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\selects\select2.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\styling\switch.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\styling\switchery.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\styling\uniform.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\tags\tagsinput.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\tags\tokenfield.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\validation\validate.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\forms\wizards\steps.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\internationalization\i18next.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\internationalization\i18nextBrowserLanguageDetector.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\internationalization\i18nextXHRBackend.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\internationalization\jquery-i18next.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\loaders\blockui.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\loaders\progressbar.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\maps\jvectormap\jvectormap.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\maps\jvectormap\map_files\countries\germany.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\maps\jvectormap\map_files\countries\usa.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\maps\jvectormap\map_files\world.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\media\cropper.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\media\fancybox.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\notifications\bootbox.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\notifications\jgrowl.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\notifications\noty.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\notifications\pnotify.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\notifications\sweet_alert.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pagination\bs_pagination.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\anytime.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\color\spectrum.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\daterangepicker.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\location\autocomplete_addresspicker.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\location\location.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\location\typeahead_addresspicker.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\pickadate\legacy.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\pickadate\picker.date.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\pickadate\picker.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\pickers\pickadate\picker.time.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\sliders\ion_rangeslider.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\sliders\nouislider.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\sliders\slider_pips.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\datatables.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\autofill.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\buttons.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\col_reorder.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\fixed_columns.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\fixed_header.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\jszip\jszip.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\key_table.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\natural_sort.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\pdfmake\pdfmake.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\pdfmake\vfs_fonts.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\responsive.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\row_reorder.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\scroller.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\datatables\extensions\select.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\tables\footable\footable.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\trees\fancytree_all.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\trees\fancytree_childcounter.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\dragula.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fab.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\core\locales-all.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\core\locales\ar.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\core\main.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\daygrid\main.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\interaction\main.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\list\main.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\fullcalendar\timegrid\main.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\headroom.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\moment\moment.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\moment\moment_locales.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\perfect_scrollbar.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\prism.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\slinky.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\ui\sticky.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\dropzone.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\fileinput\fileinput.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\fileinput\plugins\purify.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\fileinput\plugins\sortable.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\plupload\plupload.full.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\uploaders\plupload\plupload.queue.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\velocity\velocity.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\velocity\velocity.ui.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\visualization\c3\c3.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\visualization\d3\d3.min.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\visualization\d3\d3_tooltip.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\visualization\d3\venn.js" />
+    <Content Include="Content\limitless\global_assets\js\plugins\visualization\echarts\echarts.min.js" />
+    <Content Include="Content\travel\css\defaults.css" />
+    <Content Include="Content\travel\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\travel\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\travel\css\fonts\icomoon.svg" />
+    <Content Include="Content\travel\css\fonts\Notera_PersonalUseOnly.svg" />
+    <Content Include="Content\travel\css\libs\animate.css" />
+    <Content Include="Content\travel\css\libs\bootstrap.min.css" />
+    <Content Include="Content\travel\css\libs\font-awesome.min.css" />
+    <Content Include="Content\travel\css\libs\icomoon.css" />
+    <Content Include="Content\travel\css\libs\justifiedGallery.min.css" />
+    <Content Include="Content\travel\css\libs\magnific-popup.css" />
+    <Content Include="Content\travel\css\libs\owl.carousel.min.css" />
+    <Content Include="Content\travel\css\styles.css" />
+    <Content Include="Content\travel\css\variables.css" />
+    <Content Include="Content\travel\images\1.jpg" />
+    <Content Include="Content\travel\images\1_1598452306_resim.png" />
+    <Content Include="Content\travel\images\2.jpg" />
+    <Content Include="Content\travel\images\3.jpg" />
+    <Content Include="Content\travel\images\4.jpg" />
+    <Content Include="Content\travel\images\avatar.jpg" />
+    <Content Include="Content\travel\images\avatar\1.jpg" />
+    <Content Include="Content\travel\images\avatar\2.jpg" />
+    <Content Include="Content\travel\images\avatar\3.jpg" />
+    <Content Include="Content\travel\images\blog1.jpg" />
+    <Content Include="Content\travel\images\blog2.jpg" />
+    <Content Include="Content\travel\images\blog\1.jpg" />
+    <Content Include="Content\travel\images\blog\2.jpg" />
+    <Content Include="Content\travel\images\blog\slider1.jpg" />
+    <Content Include="Content\travel\images\blog\slider2.jpg" />
+    <Content Include="Content\travel\images\blog\slider3.jpg" />
+    <Content Include="Content\travel\images\eeee.jpg" />
+    <Content Include="Content\travel\images\ekinmemis.png" />
+    <Content Include="Content\travel\images\featured-slider\1.jpg" />
+    <Content Include="Content\travel\images\featured-slider\2.jpg" />
+    <Content Include="Content\travel\images\featured-slider\3.jpg" />
+    <Content Include="Content\travel\images\featured-slider\4.jpg" />
+    <Content Include="Content\travel\images\featured-slider\5.jpg" />
+    <Content Include="Content\travel\images\featured-slider\bg-3.jpg" />
+    <Content Include="Content\travel\images\featured-slider\bg.jpg" />
+    <Content Include="Content\travel\images\footer\1.jpg" />
+    <Content Include="Content\travel\images\footer\2.jpg" />
+    <Content Include="Content\travel\images\footer\3.jpg" />
+    <Content Include="Content\travel\images\footer\4.jpg" />
+    <Content Include="Content\travel\images\footer\5.jpg" />
+    <Content Include="Content\travel\images\footer\6.jpg" />
+    <Content Include="Content\travel\images\footer\7.jpg" />
+    <Content Include="Content\travel\images\footer\8.jpg" />
+    <Content Include="Content\travel\images\footer\background.jpg" />
+    <Content Include="Content\travel\images\footer\widgets-background.jpg" />
+    <Content Include="Content\travel\images\image.jpg" />
+    <Content Include="Content\travel\images\logo-background.jpg" />
+    <Content Include="Content\travel\images\logo.png" />
+    <Content Include="Content\travel\images\posts\1.jpg" />
+    <Content Include="Content\travel\images\s.png" />
+    <Content Include="Content\travel\images\sign.png" />
+    <Content Include="Content\travel\images\single\1.jpg" />
+    <Content Include="Content\travel\images\single\2.jpg" />
+    <Content Include="Content\travel\images\single\3.jpg" />
+    <Content Include="Content\travel\images\single\4.jpg" />
+    <Content Include="Content\travel\images\slider1.jpg" />
+    <Content Include="Content\travel\images\slider2.jpg" />
+    <Content Include="Content\travel\images\slider3.jpg" />
+    <Content Include="Content\travel\images\subcribe-bg.jpg" />
+    <Content Include="Content\travel\images\widgets\about-me\shutterstock_334693031.jpg" />
+    <Content Include="Content\travel\images\widgets\banner\advertise.jpg" />
+    <Content Include="Content\travel\images\widgets\category\1.jpg" />
+    <Content Include="Content\travel\images\widgets\category\2.jpg" />
+    <Content Include="Content\travel\images\widgets\category\3.jpg" />
+    <Content Include="Content\travel\images\widgets\featured-posts\1.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\1.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\2.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\3.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\4.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\5.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\6.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\7.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\8.jpg" />
+    <Content Include="Content\travel\images\widgets\instagram\9.jpg" />
+    <Content Include="Content\travel\images\widgets\posts\1.jpg" />
+    <Content Include="Content\travel\images\widgets\posts\2.jpg" />
+    <Content Include="Content\travel\images\widgets\posts\3.jpg" />
+    <Content Include="Content\travel\images\widgets\posts\4.jpg" />
+    <Content Include="Content\travel\js\libs\bootstrap.min.js" />
+    <Content Include="Content\travel\js\libs\jquery-1.12.4.min.js" />
+    <Content Include="Content\travel\js\libs\jquery-scrolltofixed-min.js" />
+    <Content Include="Content\travel\js\libs\jquery.justifiedGallery.min.js" />
+    <Content Include="Content\travel\js\libs\jquery.magnific-popup.js" />
+    <Content Include="Content\travel\js\libs\masonry.pkgd.js" />
+    <Content Include="Content\travel\js\libs\owl.carousel.js" />
+    <Content Include="Content\travel\js\scripts.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400.woff" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-brands-400d41d.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400.woff" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-regular-400d41d.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900.woff" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\limitless\global_assets\css\icons\fontawesome\fonts\fa-solid-900d41d.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\fonts\icomoond41d.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\fonts\icomoone627.eot" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\fonts\icomoone627.ttf" />
+    <Content Include="Content\limitless\global_assets\css\icons\icomoon\fonts\icomoone627.woff" />
+    <Content Include="Content\limitless\global_assets\css\icons\material\fonts\material-icons119d.ttf" />
+    <Content Include="Content\limitless\global_assets\css\icons\material\fonts\material-icons119d.woff" />
+    <Content Include="Content\travel\css\defaults.less" />
+    <Content Include="Content\travel\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\travel\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\travel\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\travel\css\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\travel\css\fonts\FontAwesome.otf" />
+    <Content Include="Content\travel\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\travel\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\travel\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\travel\css\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\travel\css\fonts\icomoon.eot" />
+    <Content Include="Content\travel\css\fonts\icomoon.ttf" />
+    <Content Include="Content\travel\css\fonts\icomoon.woff" />
+    <Content Include="Content\travel\css\fonts\icomoon.woff2" />
+    <Content Include="Content\travel\css\fonts\Notera_PersonalUseOnly.eot" />
+    <Content Include="Content\travel\css\fonts\Notera_PersonalUseOnly.ttf" />
+    <Content Include="Content\travel\css\fonts\Notera_PersonalUseOnly.woff" />
+    <Content Include="Content\travel\css\fonts\Notera_PersonalUseOnly.woff2" />
+    <Content Include="Content\travel\css\styles.less" />
+    <Content Include="Content\travel\css\variables.less" />
+    <None Include="packages.config" />
+    <Content Include="Views\Admin\Content.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
+    <Content Include="Views\Home\Single.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Logiwa.Core\Logiwa.Core.csproj">
+      <Project>{C87C0F2D-7A6E-48AF-86EC-44C33FD1C0F1}</Project>
+      <Name>Logiwa.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Logiwa.Data\Logiwa.Data.csproj">
+      <Project>{65807E4B-0575-4218-B1B5-9BAFEF5630D4}</Project>
+      <Name>Logiwa.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Logiwa.Services\Logiwa.Services.csproj">
+      <Project>{071B985E-814B-4E0C-B20D-6D4764F582F6}</Project>
+      <Name>Logiwa.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logiwa.Web.Framework\Logiwa.Web.Framework.csproj">
+      <Project>{0959A3A4-AB47-4741-985B-C2FC956709D2}</Project>
+      <Name>Logiwa.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49875</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49875/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

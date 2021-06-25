@@ -1,0 +1,33 @@
+﻿@model Logiwa.Web.Models.Product.ProductModel
+
+<div id="main-content" class="main-content clearfix" data-sidebar="right">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-posts">
+                    <article class="post post-single">
+                        <h3 class="title">
+                            @Model.Name
+                        </h3>
+
+                        <div class="post-details">
+                            <a href="#" class="post-date">@Model.CreatedOnUtc</a>
+                        </div>
+
+                        <div class="the-excerpt">
+                            <p>Sku : @Model.Sku</p>
+                            <p>Price : @Model.Price</p>
+                            <p>Height : @Model.Height</p>
+                            <p>Weight : @Model.Weight</p>
+                            <p>ShortDescription : @Model.ShortDescription</p>
+                            @foreach (var item in Model.AvailableCategories)
+                            {
+                                <p>Categories : @item.Text</p>
+                            }
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
